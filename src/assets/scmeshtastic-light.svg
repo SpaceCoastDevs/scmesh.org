@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="500" height="500" viewBox="0, 0, 500, 500">
+  <g id="background">
+    <path d="M250,500 C111.929,500 -0,388.071 -0,250 C-0,111.929 111.929,0 250,0 C388.071,0 500,111.929 500,250 C500,388.071 388.071,500 250,500 z" fill="#3CDA83"/>
+  </g>
+  <g id="Logo">
+    <path d="M250,-0 C388.071,0 500,111.929 500,250 C500,388.071 388.071,500 250,500 C111.929,500 0,388.071 0,250 C0,111.929 111.929,0 250,0 z M250,20 C122.975,20 20,122.975 20,250 C20,377.025 122.975,480 250,480 C377.025,480 480,377.025 480,250 C480,122.975 377.025,20 250,20 z" fill="#000000" id="circle"/>
+    <g id="logomark">
+      <path d="M350.928,324.627 L308.973,386.156 L266.921,324.724" fill-opacity="0" stroke="#000000" stroke-width="23.295" id="M"/>
+      <path d="M95.774,324.627 L207.988,159.605" fill-opacity="0" stroke="#000000" stroke-width="23.649" id="M"/>
+      <path d="M201.209,324.086 L308.625,166.557 L416.288,323.837" fill-opacity="0" stroke="#000000" stroke-width="23.295" id="M"/>
+    </g>
+  </g>
+</svg>

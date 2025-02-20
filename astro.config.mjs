@@ -24,7 +24,8 @@ export default defineConfig({
       //     },
       //   ],
       logo: {
-        src: "./src/assets/scmeshtastic.svg",
+        light: "./src/assets/scmeshtastic-light.svg",
+        dark: "./src/assets/scmeshtastic-dark.svg",
       },
       favicon: "/scmesh.svg",
       customCss: [
