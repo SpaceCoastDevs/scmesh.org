@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="500" height="500" viewBox="0, 0, 1000, 1000">
+  <g id="MESHTASTIC">
+    <path d="M2.794,-5.589 L1000.426,-5.589 L1000.426,1003.221 L2.794,1003.221 z" fill="#3DDA83" id="bg" display="none"/>
+    <g id="g353">
+      <path d="M191.548,649.254 L415.976,319.21" fill-opacity="0" stroke="currentColor" stroke-width="47.297" id="M"/>
+      <path d="M402.417,648.173 L617.249,333.115 L832.575,647.675" fill-opacity="0" stroke="currentColor" stroke-width="46.59" id="M"/>
+    </g>
+  </g>
+</svg>
