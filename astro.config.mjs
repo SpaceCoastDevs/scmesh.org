@@ -6,7 +6,7 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
   integrations: [
     starlight({
-      title: "Space Coast Meshtastic",
+      title: "Space Coast Mesh",
       social: {
         github: "https://github.com/SpaceCoastDevs/scmesh.org",
       },
@@ -24,8 +24,8 @@ export default defineConfig({
       //     },
       //   ],
       logo: {
-        light: "./src/assets/scmeshtastic-light.svg",
-        dark: "./src/assets/scmeshtastic-dark.svg",
+        light: "./src/assets/scmesh.svg",
+        dark: "./src/assets/scmesh.svg",
       },
       favicon: "/scmesh.svg",
       customCss: [
