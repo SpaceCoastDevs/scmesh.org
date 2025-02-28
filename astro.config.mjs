@@ -24,10 +24,9 @@ export default defineConfig({
       //     },
       //   ],
       logo: {
-        light: "./src/assets/scmesh.svg",
-        dark: "./src/assets/scmesh.svg",
+        src: "./src/assets/scmesh-ufo.svg",
       },
-      favicon: "/scmesh.svg",
+      favicon: "/scmesh-ufo.svg",
       customCss: [
         // Relative path to your custom CSS file
         "./src/styles/custom.css",
