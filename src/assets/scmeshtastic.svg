@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="250" height="250" viewBox="0, 0, 500, 500">
-  <g id="Layer_2">
-    <path d="M250,-0 C388.071,0 500,111.929 500,250 C500,388.071 388.071,500 250,500 C111.929,500 0,388.071 0,250 C0,111.929 111.929,0 250,0 z M250,20 C122.975,20 20,122.975 20,250 C20,377.025 122.975,480 250,480 C377.025,480 480,377.025 480,250 C480,122.975 377.025,20 250,20 z" fill="#000000"/>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="500" height="500" viewBox="0, 0, 500, 500">
+  <g id="background">
+    <path d="M250,500 C111.929,500 -0,388.071 -0,250 C-0,111.929 111.929,0 250,0 C388.071,0 500,111.929 500,250 C500,388.071 388.071,500 250,500 z" fill="#3BDA83"/>
   </g>
-  <g id="MESHTASTIC">
-    <path d="M1.397,-2.795 L500.213,-2.795 L500.213,501.611 L1.397,501.611 z" fill="#3DDA83" id="bg" display="none"/>
-    <g id="g353">
-      <path d="M95.774,324.627 L207.988,159.605" fill-opacity="0" stroke="#000000" stroke-width="23.649" id="M"/>
-      <path d="M201.209,324.086 L308.625,166.557 L416.288,323.837" fill-opacity="0" stroke="#000000" stroke-width="23.295" id="M"/>
+  <g id="Logo">
+    <path d="M250,-0 C388.071,-0 500,111.929 500,250 C500,388.071 388.071,500 250,500 C111.929,500 -0,388.071 -0,250 C-0,111.929 111.929,-0 250,-0 z M250,20 C122.974,20 20,122.974 20,250 C20,377.025 122.974,480 250,480 C377.025,480 480,377.025 480,250 C480,122.974 377.025,20 250,20 z" fill="#000000" id="circle"/>
+    <g id="logomark_outline" display="none">
+      <path d="M351.641,316.471 L309.685,378 L267.633,316.568" fill-opacity="0" stroke="#000000" stroke-width="60" stroke-linecap="round" stroke-linejoin="round" id="M"/>
+      <path d="M96.487,288.471 L208.701,123.449" fill-opacity="0" stroke="#000000" stroke-width="60" stroke-linecap="round" stroke-linejoin="round" id="M"/>
+      <path d="M201.921,287.931 L309.337,130.402 L417,287.681" fill-opacity="0" stroke="#000000" stroke-width="60" stroke-linecap="round" stroke-linejoin="round" id="M"/>
     </g>
-    <path d="M350.928,324.627 L308.973,386.156 L266.921,324.724" fill-opacity="0" stroke="#000000" stroke-width="23.295" id="M"/>
+    <g id="logomark" display="none">
+      <path d="M350.928,316.627 L308.973,378.156 L266.921,316.724" fill-opacity="0" stroke="#3CDA83" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" id="M"/>
+      <path d="M95.774,288.627 L207.988,123.605" fill-opacity="0" stroke="#3CDA83" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" id="M"/>
+      <path d="M201.209,288.086 L308.625,130.557 L416.288,287.837" fill-opacity="0" stroke="#3CDA83" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" id="M"/>
+    </g>
+    <g id="logomark_outline_trial">
+      <path d="M344.641,315.471 L302.685,377 L260.633,315.568" fill-opacity="0" stroke="#000000" stroke-width="60" stroke-linecap="round" stroke-linejoin="round" id="M"/>
+      <path d="M89.486,287.471 L201.7,122.449 M201.786,121.978 L254.667,198.667 M410,286.681 L302.337,129.401 L194.921,286.93" fill-opacity="0" stroke="#000000" stroke-width="60" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g id="logomark_trial">
+      <path d="M344.641,315.471 L302.685,377 L260.633,315.568" fill-opacity="0" stroke="#3CDA83" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" id="M"/>
+      <path d="M89.486,287.471 L201.7,122.449 M201.786,121.978 L254.667,198.667 M410,286.681 L302.337,129.401 L194.921,286.93" fill-opacity="0" stroke="#3CDA83" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
   </g>
 </svg>
