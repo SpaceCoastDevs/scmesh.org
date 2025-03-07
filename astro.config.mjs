@@ -1,6 +1,8 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import starlightKbd from "starlight-kbd";
+
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,10 +17,13 @@ export default defineConfig({
           label: "Start Here",
           items: ["getting-started"],
         },
-        // {
-        //   label: "LILYGO T-Deck",
-        //   items: ["lily-go-tdeck/introduction", "lily-go-tdeck/firmware"],
-        // },
+        {
+          label: "LILYGO T-Deck",
+          items: [
+            { link: "lily-go-tdeck/introduction", label: "Introduction" },
+            "lily-go-tdeck/firmware",
+          ],
+        },
       ],
       logo: {
         src: "./src/assets/scmesh-ufo.svg",
@@ -49,6 +54,14 @@ export default defineConfig({
       editLink: {
         baseUrl: "https://github.com/SpaceCoastDevs/scmesh.org/edit/main/ ",
       },
+      plugins: [
+        starlightKbd({
+          types: [
+            { id: "mac", label: "macOS" },
+            { id: "windows", label: "Windows", default: true },
+          ],
+        }),
+      ],
     }),
   ],
 });
