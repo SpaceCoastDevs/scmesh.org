@@ -6,15 +6,15 @@ hero:
   tagline: Get beamed into the Space Coast Mesh community
   image:
     file: ../../assets/scmesh-ufo.svg
-  actions:
-  - text: Sign up for the Space Coast 915Mhz Signal group
-    link: /signal
-    icon: signal
-  - text: Sign up for the Florida 915Mhz Signal group
-    link: /fl-signal
-    icon: signal
 ---
 import { Aside } from '@astrojs/starlight/components';
+import { LinkCard } from '@astrojs/starlight/components';
+
+<LinkCard
+  title="Getting Started"
+  href="/getting-started"
+  description="How to get started"
+/>
 
 <Aside type="tip" title="Coming Soon!">
   Discord server to be launched
