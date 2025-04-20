@@ -1,10 +1,12 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [
+    react(),
     starlight({
       title: "Space Coast Mesh",
       social: {
@@ -19,6 +21,12 @@ export default defineConfig({
         //   label: "LILYGO T-Deck",
         //   items: ["lily-go-tdeck/introduction", "lily-go-tdeck/firmware"],
         // },
+        {
+          label: "Builds",
+          autogenerate: {
+            directory: "builds",
+          },
+        },
       ],
       logo: {
         src: "./src/assets/scmesh-ufo.svg",
