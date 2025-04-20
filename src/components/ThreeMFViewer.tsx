@@ -26,7 +26,7 @@ const ThreeMFViewer: React.FC<ThreeMFViewerProps> = ({ modelUrl, width = 512, he
     controls.enableDamping = true;
 
     // Add stronger directional lighting for better contrast
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.4); // Lower intensity
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6); // Lower intensity
     scene.add(ambientLight);
 
     const directionalLight = new THREE.DirectionalLight(0xffffff, 1.0);
@@ -34,7 +34,7 @@ const ThreeMFViewer: React.FC<ThreeMFViewerProps> = ({ modelUrl, width = 512, he
     scene.add(directionalLight);
 
     // Optional: add a backlight for edge highlighting
-    const backLight = new THREE.DirectionalLight(0xffffff, 0.5);
+    const backLight = new THREE.DirectionalLight(0xffffff, 0.6);
     backLight.position.set(-50, -50, -100);
     scene.add(backLight);
 
@@ -70,7 +70,7 @@ const ThreeMFViewer: React.FC<ThreeMFViewerProps> = ({ modelUrl, width = 512, he
         scene.add(model);
       },
       undefined,
-      (error) => {
+      (error: Error) => {
         console.error('Error loading 3MF model:', error);
       }
     );
@@ -89,7 +89,7 @@ const ThreeMFViewer: React.FC<ThreeMFViewerProps> = ({ modelUrl, width = 512, he
     };
   }, [modelUrl, width, height]);
 
-  return <div ref={mountRef} style={{ width: '100%', height: '100%', display: 'block' }}><h2>3D Model Viewer</h2></div>;
+  return <div ref={mountRef} className='three-mf-viewer'><h2>3D Model Viewer</h2></div>;
 };
 
 export default ThreeMFViewer;
