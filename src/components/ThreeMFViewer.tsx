@@ -89,7 +89,7 @@ const ThreeMFViewer: React.FC<ThreeMFViewerProps> = ({ modelUrl, width = 512, he
     };
   }, [modelUrl, width, height]);
 
-  return <div ref={mountRef} style={{ width: '100%', height: '50vh', display: 'block' }}><h2>3D Model Viewer</h2></div>;
+  return <div ref={mountRef} style={{ width: '100%', height: '100%', display: 'block' }}><h2>3D Model Viewer</h2></div>;
 };
 
 export default ThreeMFViewer;
