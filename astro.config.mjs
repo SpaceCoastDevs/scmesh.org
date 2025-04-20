@@ -21,7 +21,7 @@ export default defineConfig({
           label: "LILYGO T-Deck",
           items: [
             { link: "lily-go-tdeck/introduction", label: "Introduction" },
-            "lily-go-tdeck/firmware",
+            "lily-go-tdeck/new-firmware",
           ],
         },
       ],
@@ -52,7 +52,7 @@ export default defineConfig({
         "./src/styles/custom.css",
       ],
       editLink: {
-        baseUrl: "https://github.com/SpaceCoastDevs/scmesh.org/edit/main/ ",
+        baseUrl: "https://github.com/SpaceCoastDevs/scmesh.org/edit/main/",
       },
       plugins: [
         starlightKbd({

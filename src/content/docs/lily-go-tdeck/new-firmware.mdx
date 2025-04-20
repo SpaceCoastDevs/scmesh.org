@@ -1,19 +1,32 @@
 ---
-title: 2.6 MUI Firmware
+title: New 2.6 MUI Firmware
 description: Guide on how to flash the new MUI firmware
 
 ---
 import { Steps } from '@astrojs/starlight/components';
 import { Kbd } from 'starlight-kbd/components'
 import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Aside } from '@astrojs/starlight/components';
+
 
 <Steps>
 
 1. Plug in your T-Deck to your computer
 
-2. Load the [Meshtastic Web Flasher](https://flasher.meshtastic.org/)
+      1. Power off your device
+      2. Hold the trackball button down
+      3. Plug in the device
+      4. Power on the device
+      5. Release the trackball after a few seconds once it is being powered on
 
-3. Press these keys in this order
+    <Aside type="caution">
+        Note, the screen will remain off
+    </Aside>
+
+
+1. Load the [Meshtastic Web Flasher](https://flasher.meshtastic.org/)
+
+2. Press these keys in this order
 
     <details>
     <summary>Spoiler Hidden</summary>
@@ -31,7 +44,7 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
         </Card>
     </CardGrid>
 
-4. Choose LILYGO T-Deck in the device list and choose the 2.6 Tech Preview
+3. Choose LILYGO T-Deck in the device list and choose the 2.6 Tech Preview
     ![Flasher Website Choose Options](@assets/t-deck/flasher-choose-2.6.png)
 
 
