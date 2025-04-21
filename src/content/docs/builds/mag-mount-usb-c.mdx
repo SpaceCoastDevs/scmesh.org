@@ -3,5 +3,42 @@ title: MagSafe USB-C Node Build
 description: This is a node you can mount the back of your phone and use a USB-C cable to power
 ---
 import ThreeMFViewer from '../../../components/ThreeMFViewer'; 
+import { LinkButton } from '@astrojs/starlight/components';
+import { LinkCard } from '@astrojs/starlight/components';
+import { Steps } from '@astrojs/starlight/components';
+
+<LinkButton href="/3d-files/magsafe-mount-fixed.3mf">
+MagSafe USB-C Node Build Download
+</LinkButton>
 
 <ThreeMFViewer client:load modelUrl="/3d-files/magsafe-mount-fixed.3mf" />
+
+<LinkCard
+  title="Original Source"
+  href="https://makerworld.com/en/models/413279-magsafe-heltec-v3-lora-meshtastic-case"
+  description="This is the original source for this file. I modified it to be properly aligned with the bed"
+  target="_blank"
+/>
+
+## Bill of Materials
+
+| Item                             | Link                                 |
+| -------------------------------- | ------------------------------------ |
+| Heltec V3                        | https://www.amazon.com/dp/B0DGT68T3R |
+| Flutesan 3 Pieces Magnet Sticker | https://www.amazon.com/dp/B09FZ5Z7S4 |
+
+## Build Steps
+
+<Steps>
+
+1. In order to embed the magnetic ring into the print, It is necessary to print at a .2mm layer height with a .4mm nozzle and then pause the printer at layer number 6 or 7.
+
+2. Then make sure the magnet is oriented with the correct side facing down (Test on the phone before hand) finally peel the film of magnets and stick the magnets to the inside gap of the print, in order for the model to stay compact you have to remove 3 magnets from the ring and the two bottom magnets (I included a photo, anything in the red circle needs to be cut out, and place that cut out section underneath where the charging port is located.
+
+3. Resume the print and it will print over the magnets, which will permanently imbed them in the print.
+
+4. When both pieces are printed insert the SMA connector from the outside of the print and run the wires inside, with the hexagonal nut fitting in place with the designated area in the print, (This may be a tight fit depending on the SMA connector used.
+
+5. Install the Heltec board and connect it to the SMA connector, my SMA connector was to short and instead of running it in a tight loop I ran it underneath the display as seen in the photos. Then just snap the top in place and your good to go.
+
+</Steps>
