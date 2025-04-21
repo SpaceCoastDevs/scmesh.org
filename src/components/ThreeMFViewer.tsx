@@ -1,7 +1,5 @@
 import React, { useRef, useEffect } from 'react';
 import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { ThreeMFLoader } from 'three/examples/jsm/loaders/3MFLoader';
 
 interface ThreeMFViewerProps {
   modelUrl: string;
@@ -18,82 +16,90 @@ const ThreeMFViewer: React.FC<ThreeMFViewerProps> = ({ modelUrl, width = 512, he
 
   useEffect(() => {
     if (!mountRef.current) return;
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
-    camera.position.set(0, 0, 100);
-    cameraRef.current = camera;
-
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(width, height);
-    mountRef.current.appendChild(renderer.domElement);
-
-    const controls = new OrbitControls(camera, renderer.domElement);
-    controls.enableDamping = true;
-    controlsRef.current = controls;
-
-    // Add stronger directional lighting for better contrast
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6); // Lower intensity
-    scene.add(ambientLight);
-
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1.0);
-    directionalLight.position.set(50, 50, 100);
-    scene.add(directionalLight);
-
-    // Optional: add a backlight for edge highlighting
-    const backLight = new THREE.DirectionalLight(0xffffff, 0.6);
-    backLight.position.set(-50, -50, -100);
-    scene.add(backLight);
-
+    let controls: any = null;
+    let loader: any = null;
     let model: THREE.Object3D | null = null;
-    const loader = new ThreeMFLoader();
-    loader.load(
-      modelUrl,
-      (object: THREE.Object3D) => {
-        model = object;
-        modelRef.current = model;
-        // Center the model
-        const box = new THREE.Box3().setFromObject(model);
-        const center = box.getCenter(new THREE.Vector3());
-        model?.position.sub(center);
+    let renderer: THREE.WebGLRenderer | null = null;
+    let camera: THREE.PerspectiveCamera | null = null;
+    let scene: THREE.Scene | null = null;
+    let isMounted = true;
 
-        // Set model color
-        model?.traverse((child) => {
-          if ((child as THREE.Mesh).isMesh) {
-            const mesh = child as THREE.Mesh;
-            if (Array.isArray(mesh.material)) {
-              mesh.material.forEach((mat) => {
-                if ((mat as THREE.MeshStandardMaterial).color) {
-                  (mat as THREE.MeshStandardMaterial).color.set(color);
-                }
-              });
-            } else if ((mesh.material as THREE.MeshStandardMaterial).color) {
-              (mesh.material as THREE.MeshStandardMaterial).color.set(color);
+    (async () => {
+      const OrbitControlsModule = await import('three/examples/jsm/controls/OrbitControls');
+      const ThreeMFLoaderModule = await import('three/examples/jsm/loaders/3MFLoader');
+      if (!isMounted) return;
+      scene = new THREE.Scene();
+      camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+      camera.position.set(0, 0, 100);
+      cameraRef.current = camera;
+
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer.setSize(width, height);
+      mountRef.current.appendChild(renderer.domElement);
+
+      controls = new OrbitControlsModule.OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controlsRef.current = controls;
+
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+      scene.add(ambientLight);
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 1.0);
+      directionalLight.position.set(50, 50, 100);
+      scene.add(directionalLight);
+      const backLight = new THREE.DirectionalLight(0xffffff, 0.6);
+      backLight.position.set(-50, -50, -100);
+      scene.add(backLight);
+
+      loader = new ThreeMFLoaderModule.ThreeMFLoader();
+      loader.load(
+        modelUrl,
+        (object: THREE.Object3D) => {
+          model = object;
+          modelRef.current = model;
+          const box = new THREE.Box3().setFromObject(model);
+          const center = box.getCenter(new THREE.Vector3());
+          model?.position.sub(center);
+          model?.traverse((child) => {
+            if ((child as THREE.Mesh).isMesh) {
+              const mesh = child as THREE.Mesh;
+              if (Array.isArray(mesh.material)) {
+                mesh.material.forEach((mat) => {
+                  if ((mat as THREE.MeshStandardMaterial).color) {
+                    (mat as THREE.MeshStandardMaterial).color.set(color);
+                  }
+                });
+              } else if ((mesh.material as THREE.MeshStandardMaterial).color) {
+                (mesh.material as THREE.MeshStandardMaterial).color.set(color);
+              }
             }
-          }
-        });
-        scene.add(model);
-      },
-      undefined,
-      (error: Error) => {
-        console.error('Error loading 3MF model:', error);
-      }
-    );
+          });
+          scene.add(model);
+        },
+        undefined,
+        (error: Error) => {
+          console.error('Error loading 3MF model:', error);
+        }
+      );
 
-    const animate = () => {
-      requestAnimationFrame(animate);
-      controls.update();
-      renderer.render(scene, camera);
-    };
-    animate();
+      const animate = () => {
+        if (!isMounted) return;
+        requestAnimationFrame(animate);
+        controls.update();
+        renderer.render(scene, camera);
+      };
+      animate();
+    })();
 
     return () => {
-      if (model) scene.remove(model);
-      renderer.dispose();
-      mountRef.current?.removeChild(renderer.domElement);
+      isMounted = false;
+      if (model && scene) scene.remove(model);
+      if (renderer && mountRef.current) {
+        renderer.dispose();
+        mountRef.current.removeChild(renderer.domElement);
+      }
     };
   }, [modelUrl, width, height, color]);
 
-  // Handler: Reset View
   const handleResetView = () => {
     if (controlsRef.current && cameraRef.current) {
       controlsRef.current.reset();
@@ -101,10 +107,8 @@ const ThreeMFViewer: React.FC<ThreeMFViewerProps> = ({ modelUrl, width = 512, he
     }
   };
 
-  // Handler: Change Color
   const handleColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setColor(e.target.value);
-    // Color will be applied on next render via useEffect
   };
 
   return (

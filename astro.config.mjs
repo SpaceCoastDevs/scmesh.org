@@ -59,4 +59,13 @@ export default defineConfig({
       },
     }),
   ],
+  vite: {
+    optimizeDeps: {
+      include: [
+        "three",
+        "three/examples/jsm/controls/OrbitControls",
+        "three/examples/jsm/loaders/3MFLoader",
+      ],
+    },
+  },
 });
