@@ -112,18 +112,18 @@ const ThreeMFViewer: React.FC<ThreeMFViewerProps> = ({ modelUrl, width = 512, he
   };
 
   return (
-    <div className='three-mf-viewer' style={{ position: 'relative', width, height }}>
+    <div className='three-mf-viewer mb-5'>
       <h2>3D Model Viewer</h2>
       <div ref={mountRef} style={{ width, height }} />
-      <div style={{ position: 'absolute', top: 8, right: 8, display: 'flex', flexDirection: 'column', gap: 8, zIndex: 2 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 8, zIndex: 2 }}>
         <button onClick={handleResetView} title='Reset camera position'>Reset View</button>
         <label style={{ display: 'flex', alignItems: 'center', gap: 4 }} title='Change model color'>
           <span style={{ fontSize: 12 }}>Color</span>
           <input type='color' value={color} onChange={handleColorChange} />
         </label>
-      </div>
-      <div style={{ position: 'absolute', bottom: 8, left: 8, background: 'rgba(0,0,0,0.5)', color: '#fff', padding: '2px 8px', borderRadius: 4, fontSize: 12, zIndex: 2 }}>
+        <div style={{ background: 'rgba(0,0,0,0.5)', color: '#fff', padding: '2px 8px', borderRadius: 4, fontSize: 12, zIndex: 2 }}>
         <span>Use mouse to rotate, scroll to zoom, right-click to pan.</span>
+      </div>
       </div>
     </div>
   );
