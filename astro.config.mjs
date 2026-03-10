@@ -13,7 +13,7 @@ export default defineConfig({
       sidebar: [
         {
           label: "Start Here",
-          items: ["getting-started"],
+          items: ["getting-started", "monday-night-meshup"],
         },
         // {
         //   label: "LILYGO T-Deck",
