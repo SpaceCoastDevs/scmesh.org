@@ -1,0 +1,82 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+
+<defs>
+<linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+<stop offset="0%" stop-color="#0B0F1A"/>
+<stop offset="100%" stop-color="#10233A"/>
+</linearGradient>
+</defs>
+
+<rect width="1200" height="630" fill="url(#bg)"/>
+
+<!-- Title -->
+<text x="600" y="120" text-anchor="middle"
+font-family="Orbitron, Arial"
+font-size="64"
+fill="#4EF3C1"
+font-weight="700">
+MONDAY NIGHT MESHUP
+</text>
+
+<!-- Instructions -->
+<text x="600" y="175" text-anchor="middle"
+font-family="Orbitron, Arial"
+font-size="26"
+fill="#D4FFF3">
+To participate please format your messages like this:
+</text>
+
+<text x="600" y="228" text-anchor="middle"
+font-family="Dank Mono, Courier"
+font-size="20"
+fill="#3DDA83">
+&lt;your node name&gt; in &lt;city&gt;, Brevard County with &lt;number of hops in settings&gt; hops,
+</text>
+
+<text x="600" y="258" text-anchor="middle"
+font-family="Dank Mono, Courier"
+font-size="20"
+fill="#3DDA83">
+#weekly-mesh-net message &lt;message number&gt;
+</text>
+
+<text x="600" y="318" text-anchor="middle"
+font-family="Orbitron, Arial"
+font-size="26"
+fill="#D4FFF3">
+So it would look something like this:
+</text>
+
+<text x="600" y="368" text-anchor="middle"
+font-family="Dank Mono, Courier"
+font-size="20"
+fill="#3DDA83">
+scmesh.org in West Melbourne, Brevard County with 7 hops, #weekly-mesh-net message 1
+</text>
+
+<!-- Tagline -->
+<text x="600" y="445" text-anchor="middle"
+font-family="Arial"
+font-size="24"
+fill="#B7F6E5">
+Build • Test • Learn • Connect
+</text>
+
+<!-- Time -->
+<text x="600" y="500" text-anchor="middle"
+font-family="Arial"
+font-size="28"
+fill="#A9C6FF"
+font-weight="700">
+Mondays • 8 PM EST
+</text>
+
+<!-- URL -->
+<text x="600" y="560" text-anchor="middle"
+font-family="Arial"
+font-size="20"
+fill="#9FD6FF">
+scmesh.org/monday-night-meshup
+</text>
+
+</svg>
