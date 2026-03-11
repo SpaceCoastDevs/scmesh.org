@@ -4,6 +4,7 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://scmesh.org",
   integrations: [
     starlight({
       title: "Space Coast Mesh",
@@ -39,6 +40,36 @@ export default defineConfig({
           attrs: {
             rel: "manifest",
             href: "/site.webmanifest",
+          },
+        },
+        // Open Graph
+        {
+          tag: "meta",
+          attrs: {
+            property: "og:image",
+            content: "https://scmesh.org/scmesh-ufo-banner.png",
+          },
+        },
+        {
+          tag: "meta",
+          attrs: {
+            property: "og:type",
+            content: "website",
+          },
+        },
+        // Twitter / X card
+        {
+          tag: "meta",
+          attrs: {
+            name: "twitter:card",
+            content: "summary_large_image",
+          },
+        },
+        {
+          tag: "meta",
+          attrs: {
+            name: "twitter:image",
+            content: "https://scmesh.org/scmesh-ufo-banner.png",
           },
         },
       ],
