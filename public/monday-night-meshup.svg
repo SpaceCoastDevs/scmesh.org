@@ -37,7 +37,7 @@ fill="#3DDA83">
 font-family="Dank Mono, Courier"
 font-size="20"
 fill="#3DDA83">
-#weekly-mesh-net message &lt;message number&gt;
+#FLMeshNet message &lt;message number&gt;
 </text>
 
 <text x="600" y="318" text-anchor="middle"
@@ -51,7 +51,7 @@ So it would look something like this:
 font-family="Dank Mono, Courier"
 font-size="20"
 fill="#3DDA83">
-scmesh.org in West Melbourne, Brevard County with 7 hops, #weekly-mesh-net message 1
+scmesh.org in West Melbourne, Brevard County with 7 hops, #FLMeshNet message 1
 </text>
 
 <!-- Tagline -->
@@ -76,7 +76,7 @@ Mondays • 8 PM EST
 font-family="Arial"
 font-size="20"
 fill="#9FD6FF">
-scmesh.org/monday-night-meshup
+https://scmesh.org/monday-night-meshup
 </text>
 
 </svg>
