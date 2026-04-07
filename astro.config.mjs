@@ -1,7 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
-
+import rehypeExternalLinks from 'rehype-external-links';
 import react from "@astrojs/react";
 
 // https://astro.build/config
@@ -84,4 +84,16 @@ export default defineConfig({
       },
     }),
   ],
+  markdown: {
+    rehypePlugins: [
+      [
+        rehypeExternalLinks,
+        {
+          content: { type: 'text', value: ' 🔗' },
+          target: "\_blank",
+          rel: ["noopener", "noreferrer", "external"],
+        }
+      ],
+    ]
+  },
 });
