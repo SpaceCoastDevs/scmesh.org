@@ -1,0 +1,18 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+---
+
+<StarlightPage frontmatter={{ title: 'Posts', description: 'Meetups, local mesh news, and notes from the Space Coast community.', tableOfContents: false, prev: false, next: false }}>
+  <section class="posts-list" aria-label="Latest posts"><slot /></section>
+  <aside class="contribute">
+    <strong>Have something to share?</strong>
+    <p>Send us your meetup ideas, mesh updates, or questions.</p>
+    <a href="/contact/">Get in touch →</a>
+  </aside>
+</StarlightPage>
+
+<style>
+  .posts-list { display: grid; gap: 1.5rem; }
+  .contribute { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--sl-color-hairline); }
+  .contribute p { margin-block: 0.5rem; }
+</style>

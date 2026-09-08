@@ -36,6 +36,54 @@ Images can be added to `src/assets/` and embedded in Markdown with a relative li
 
 Static assets, like favicons, can be placed in the `public/` directory.
 
+## Posts
+
+Add Markdown (`.md`) or MDX (`.mdx`) files to `src/content/posts/`.
+The `posts` collection validates their frontmatter:
+
+```md
+---
+title: My first post
+description: A short summary of the post.
+pubDate: 2026-09-08
+author: Your name
+tags:
+  - community
+draft: true
+---
+
+Write your post here.
+```
+
+`title`, `description`, and `pubDate` are required. `author` and
+`updatedDate` (a date) are optional. `tags` defaults to an empty list and
+`draft` defaults to `false`.
+
+Posts appear at `/posts/`, newest first, with individual pages at
+`/posts/<filename>/`. Entries with `draft: true` are excluded from both the
+listing and generated pages.
+
+The sidebar automatically lists published posts under **Posts**, newest first.
+`src/utils/posts.ts` supplies the same published-post ordering to the sidebar,
+index, and routes. Drafts are excluded from all three.
+
+The list and article layouts live in `src/layouts/PostsLayout.astro` and
+`src/layouts/PostLayout.astro`. Their shared page heading is customized in
+`src/components/PageTitle.astro`; other pages retain Starlight's default heading.
+
+## Contact form (Netlify)
+
+The `/contact/` page includes a static Netlify form named `contact`, with a
+honeypot for spam filtering and a success page at `/contact/thanks/`.
+
+In the Netlify project dashboard, open **Forms** and enable form detection
+before deploying. After deployment, confirm that the `contact` form is detected.
+Submissions appear in Netlify Forms; configure form notifications there if you
+want email alerts. Submission handling requires Netlify and cannot be verified
+with the local Astro preview server.
+
+See [Netlify Forms setup](https://docs.netlify.com/manage/forms/setup/).
+
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:

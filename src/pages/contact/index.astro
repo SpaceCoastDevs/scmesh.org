@@ -1,0 +1,59 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+---
+
+<StarlightPage frontmatter={{ title: 'Contact', description: 'Get in touch with Space Coast Mesh.', tableOfContents: false }}>
+  <p>Have a question about the local mesh, a meetup idea, or trouble joining the email group? Send us a message.</p>
+  <form name="contact" method="POST" action="/contact/thanks/" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="contact" />
+    <p hidden>
+      <label>Leave this field empty: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+    </p>
+    <p>All fields are required.</p>
+    <div class="field">
+      <label for="contact-name">Name</label>
+      <input id="contact-name" name="name" type="text" autocomplete="name" required maxlength="200" />
+    </div>
+    <div class="field">
+      <label for="contact-email">Email</label>
+      <input id="contact-email" name="email" type="email" autocomplete="email" required maxlength="254" />
+    </div>
+    <div class="field">
+      <label for="contact-message">Message</label>
+      <textarea id="contact-message" name="message" rows="7" required maxlength="10000"></textarea>
+    </div>
+    <button type="submit">Send message</button>
+  </form>
+</StarlightPage>
+
+<style>
+  form { max-width: 36rem; margin-block: 2rem; }
+  .field { margin-block: 1.25rem; }
+  label { display: block; font-weight: 600; margin-bottom: 0.4rem; }
+  input:not([type='hidden']), textarea {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--sl-color-gray-3);
+    border-radius: 0.4rem;
+    background: var(--sl-color-black);
+    color: var(--sl-color-white);
+    font: inherit;
+  }
+  textarea { resize: vertical; }
+  button {
+    padding: 0.75rem 1.25rem;
+    border: 0;
+    border-radius: 0.4rem;
+    background: var(--sl-color-text-accent);
+    color: var(--sl-color-black);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  input:focus-visible, textarea:focus-visible, button:focus-visible {
+    outline: 2px solid var(--sl-color-text-accent);
+    outline-offset: 3px;
+  }
+</style>

@@ -1,0 +1,23 @@
+---
+import DefaultPageTitle from '@astrojs/starlight/components/PageTitle.astro';
+const path = Astro.url.pathname.replace(/\/$/, '');
+const isPosts = path === '/posts' || path.startsWith('/posts/');
+const isIndex = path === '/posts';
+const { title, description } = Astro.locals.starlightRoute.entry.data;
+---
+
+{isPosts ? (
+  <header class="posts-heading">
+    <a class="eyebrow" href={isIndex ? '/' : '/posts/'}>{isIndex ? 'Space Coast Mesh' : '← All posts'}</a>
+    <h1 id="_top">{title}</h1>
+    <p>{description}</p>
+  </header>
+) : <DefaultPageTitle />}
+
+<style>
+  .posts-heading { padding-block: 1.5rem 0.75rem; max-width: 48rem; }
+  .eyebrow { color: var(--sl-color-text-accent); font-size: 0.875rem; font-weight: 600; text-decoration: none; }
+  .eyebrow:hover { text-decoration: underline; }
+  h1 { margin-block: 1rem; font-size: clamp(2.25rem, 5vw, 3.75rem); line-height: 1.08; letter-spacing: -0.035em; color: var(--sl-color-white); overflow-wrap: anywhere; }
+  p { font-size: 1.15rem; line-height: 1.7; color: var(--sl-color-gray-2); max-width: 42rem; }
+</style>

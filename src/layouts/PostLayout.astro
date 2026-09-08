@@ -1,0 +1,37 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { formatPostDate, getPublishedPosts, postUrl } from '../utils/posts';
+interface Props { post: CollectionEntry<'posts'> }
+const { post } = Astro.props;
+const posts = await getPublishedPosts();
+const index = posts.findIndex((entry) => entry.id === post.id);
+// Posts are sorted newest first: previous is older, next is newer.
+const previousPost = index >= 0 ? posts[index + 1] : undefined;
+const nextPost = index > 0 ? posts[index - 1] : undefined;
+const postLink = (entry: CollectionEntry<'posts'> | undefined) =>
+  entry ? { label: entry.data.title, link: postUrl(entry.id) } : false;
+---
+
+<StarlightPage frontmatter={{ title: post.data.title, description: post.data.description, tableOfContents: false, prev: postLink(previousPost), next: postLink(nextPost) }}>
+  <article class="post">
+    <div class="metadata">
+      <time datetime={post.data.pubDate.toISOString()}>{formatPostDate(post.data.pubDate)}</time>
+      {post.data.author && <span>By {post.data.author}</span>}
+      {post.data.updatedDate && <span>Updated <time datetime={post.data.updatedDate.toISOString()}>{formatPostDate(post.data.updatedDate)}</time></span>}
+    </div>
+    {post.data.tags.length > 0 && <ul class="tags" aria-label="Tags">{post.data.tags.map((tag) => <li>{tag}</li>)}</ul>}
+    <div class="post-body"><slot /></div>
+    <footer class="post-footer"><a href="/posts/">← All posts</a><a href="/contact/">Contact Space Coast Mesh →</a></footer>
+  </article>
+</StarlightPage>
+
+<style>
+  .post { max-width: 65ch; }
+  .metadata { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; color: var(--sl-color-gray-2); font-size: 0.875rem; }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; padding: 0; }
+  .tags li { margin: 0; border: 1px solid var(--sl-color-hairline); padding: 0.2rem 0.65rem; border-radius: 2rem; font-size: 0.8rem; }
+  .post-body { margin-top: 2rem; font-size: 1.1rem; line-height: 1.85; overflow-wrap: anywhere; }
+  .post-body :global(img) { border-radius: 0.5rem; }
+  .post-footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--sl-color-hairline); font-size: 0.9rem; }
+</style>

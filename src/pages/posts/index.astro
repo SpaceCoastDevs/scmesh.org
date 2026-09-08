@@ -1,0 +1,35 @@
+---
+import PostsLayout from '../../layouts/PostsLayout.astro';
+import { getPublishedPosts, postUrl, formatPostDate } from '../../utils/posts';
+const posts = await getPublishedPosts();
+---
+
+<PostsLayout>
+  {posts.map((post, index) => (
+    <article class:list={['post-card', { latest: index === 0 }]}>
+      <div class="meta">
+        {index === 0 && <span class="badge">Latest post</span>}
+        <time datetime={post.data.pubDate.toISOString()}>{formatPostDate(post.data.pubDate)}</time>
+      </div>
+      <h2><a href={postUrl(post.id)}>{post.data.title}</a></h2>
+      <p>{post.data.description}</p>
+      {post.data.author && <p class="author">By {post.data.author}</p>}
+      <a class="read-post" href={postUrl(post.id)} aria-label={`Read ${post.data.title}`}>Read post <span aria-hidden="true">→</span></a>
+    </article>
+  ))}
+  {posts.length === 0 && <p>No posts yet. Check back soon!</p>}
+</PostsLayout>
+
+<style>
+  .post-card { padding: clamp(1.25rem, 3vw, 2rem); border: 1px solid var(--sl-color-hairline); border-radius: 0.75rem; background: var(--sl-color-bg-nav); }
+  .post-card.latest { border-top: 3px solid var(--sl-color-text-accent); }
+  .meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; font-size: 0.8rem; color: var(--sl-color-gray-2); }
+  .badge { color: var(--sl-color-text-accent); font-weight: 600; }
+  h2 { margin-top: 1rem; font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.25; }
+  h2 a { color: var(--sl-color-white); text-decoration: none; }
+  h2 a:hover { color: var(--sl-color-text-accent); text-decoration: underline; }
+  p { color: var(--sl-color-gray-2); }
+  .author { font-size: 0.875rem; }
+  .read-post { display: inline-block; margin-top: 1.25rem; font-weight: 600; text-decoration: none; }
+  .read-post:hover { text-decoration: underline; }
+</style>

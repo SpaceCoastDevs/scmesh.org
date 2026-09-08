@@ -10,6 +10,8 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "Space Coast Mesh",
+      routeMiddleware: "./src/routeData.ts",
+      components: { PageTitle: "./src/components/PageTitle.astro" },
       social: {
         github: "https://github.com/SpaceCoastDevs/scmesh.org",
       },
@@ -18,6 +20,8 @@ export default defineConfig({
           label: "Start Here",
           items: ["getting-started", "monday-night-meshup"],
         },
+        { label: "Posts", link: "/posts/" },
+        { label: "Contact", link: "/contact/" },
         // {
         //   label: "LILYGO T-Deck",
         //   items: ["lily-go-tdeck/introduction", "lily-go-tdeck/firmware"],
