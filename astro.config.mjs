@@ -8,6 +8,7 @@ import react from "@astrojs/react";
 export default defineConfig({
   site: "https://scmesh.org",
   integrations: [
+    react(),
     starlight({
       title: "Space Coast Mesh",
       routeMiddleware: "./src/routeData.ts",

@@ -84,6 +84,19 @@ with the local Astro preview server.
 
 See [Netlify Forms setup](https://docs.netlify.com/manage/forms/setup/).
 
+## Mesh demonstration
+
+The getting-started page hydrates `MeshTopology` when it becomes visible.
+Its styles live in `src/components/MeshTopology.css`; the relay graph and wave
+calculation live in `src/utils/meshTopology.ts`. The simulation starts paused,
+runs entirely in the browser, and sends no messages to real radios.
+
+Run the relay regression tests with Node 22.6 or later:
+
+```sh
+node --experimental-strip-types --test tests/meshTopology.test.mjs
+```
+
 ## 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:

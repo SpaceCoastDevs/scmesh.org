@@ -3,6 +3,7 @@ title: Getting Started
 description: How to get started using Meshtastic
 ---
 import { LinkButton } from '@astrojs/starlight/components';
+import MeshTopology from '../../components/MeshTopology';
 
 
 <LinkButton
@@ -26,6 +27,8 @@ import { LinkButton } from '@astrojs/starlight/components';
 ## How Meshtastic Works
 
 Meshtastic creates a mesh network where devices communicate using LoRa radio. Connect your phone or computer to a radio via Bluetooth, WiFi, or USB — and communicate with others across vast distances without any internet or cell service.
+
+<MeshTopology client:visible />
 
 ## Supported Hardware
 
